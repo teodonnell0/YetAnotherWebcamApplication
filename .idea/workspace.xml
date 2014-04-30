@@ -623,17 +623,21 @@
       <changelist id="65db2dd2-f49b-42ef-bc14-f46b90d46695" name="Default" comment="" />
       <created>1398813678423</created>
       <updated>1398813678423</updated>
-      <workItem from="1398813679219" duration="3364000" />
+      <workItem from="1398813679219" duration="3377000" />
     </task>
     <task id="LOCAL-00001" summary="Started to add comments explaining code&#10;Refactored code indentation and styles">
       <created>1398819271567</created>
       <updated>1398819271567</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Started to add comments explaining code&#10;Refactored code indentation and styles">
+      <created>1398819385046</created>
+      <updated>1398819385046</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3364000" />
+    <option name="totallyTimeSpent" value="3377000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
