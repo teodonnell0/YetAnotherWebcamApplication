@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Multimedia Webcam Project:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Multimedia_Webcam_Project_jar</output-path>
+    <root id="archive" name="Multimedia Webcam Project.jar">
+      <element id="module-output" name="Multimedia Webcam Project" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/javacv.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/javacpp.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/javacv-linux-x86.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/javacv-linux-x86_64.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/ffmpeg-2.1.1-linux-x86.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/opencv-2.4.8-linux-x86.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/ffmpeg-2.1.1-linux-x86_64.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/opencv-2.4.8-linux-x86_64.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

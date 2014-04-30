@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_multimedia_webcam_project" default="compile.module.multimedia_webcam_project">
+  <dirname property="module.multimedia_webcam_project.basedir" file="${ant.file.module_multimedia_webcam_project}"/>
+  
+  <property name="module.jdk.home.multimedia_webcam_project" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.multimedia_webcam_project" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.multimedia_webcam_project" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.multimedia_webcam_project" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="multimedia_webcam_project.output.dir" value="${module.multimedia_webcam_project.basedir}/out/production/Multimedia Webcam Project"/>
+  <property name="multimedia_webcam_project.testoutput.dir" value="${module.multimedia_webcam_project.basedir}/out/test/Multimedia Webcam Project"/>
+  
+  <path id="multimedia_webcam_project.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="multimedia_webcam_project.module.production.classpath">
+    <path refid="${module.jdk.classpath.multimedia_webcam_project}"/>
+    <path refid="library.lib_(2).classpath"/>
+  </path>
+  
+  <path id="multimedia_webcam_project.runtime.production.module.classpath">
+    <pathelement location="${multimedia_webcam_project.output.dir}"/>
+    <path refid="library.lib_(2).classpath"/>
+  </path>
+  
+  <path id="multimedia_webcam_project.module.classpath">
+    <path refid="${module.jdk.classpath.multimedia_webcam_project}"/>
+    <pathelement location="${multimedia_webcam_project.output.dir}"/>
+    <path refid="library.lib_(2).classpath"/>
+  </path>
+  
+  <path id="multimedia_webcam_project.runtime.module.classpath">
+    <pathelement location="${multimedia_webcam_project.testoutput.dir}"/>
+    <pathelement location="${multimedia_webcam_project.output.dir}"/>
+    <path refid="library.lib_(2).classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.multimedia_webcam_project">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.multimedia_webcam_project">
+    <patternset refid="excluded.from.module.multimedia_webcam_project"/>
+  </patternset>
+  
+  <path id="multimedia_webcam_project.module.sourcepath">
+    <dirset dir="${module.multimedia_webcam_project.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.multimedia_webcam_project" depends="compile.module.multimedia_webcam_project.production,compile.module.multimedia_webcam_project.tests" description="Compile module Multimedia Webcam Project"/>
+  
+  <target name="compile.module.multimedia_webcam_project.production" depends="register.custom.compilers" description="Compile module Multimedia Webcam Project; production classes">
+    <mkdir dir="${multimedia_webcam_project.output.dir}"/>
+    <javac2 destdir="${multimedia_webcam_project.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.multimedia_webcam_project}/javac">
+      <compilerarg line="${compiler.args.multimedia_webcam_project}"/>
+      <bootclasspath refid="multimedia_webcam_project.module.bootclasspath"/>
+      <classpath refid="multimedia_webcam_project.module.production.classpath"/>
+      <src refid="multimedia_webcam_project.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.multimedia_webcam_project"/>
+    </javac2>
+    
+    <copy todir="${multimedia_webcam_project.output.dir}">
+      <fileset dir="${module.multimedia_webcam_project.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.multimedia_webcam_project.tests" depends="register.custom.compilers,compile.module.multimedia_webcam_project.production" description="compile module Multimedia Webcam Project; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.multimedia_webcam_project" description="cleanup module">
+    <delete dir="${multimedia_webcam_project.output.dir}"/>
+    <delete dir="${multimedia_webcam_project.testoutput.dir}"/>
+  </target>
+</project>
