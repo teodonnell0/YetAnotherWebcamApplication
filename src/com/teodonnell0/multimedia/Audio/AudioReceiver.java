@@ -1,12 +1,17 @@
+/*
+ * Copyright (c) 2014.
+ * Travis O'Donnell
+ * Frostburg State University
+ * Computer Science
+ */
+
 package com.teodonnell0.multimedia.Audio;
 
 import com.teodonnell0.multimedia.Settings;
 
 import javax.sound.sampled.*;
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.Socket;
 
 /**
  * Created by travis on 3/22/14.

@@ -25,9 +25,4 @@ public class Settings {
     public static final int SAMPLE_SIZE = 2;
     public static final int BUFFER_SIZE = SAMPLE_INTERVAL * SAMPLE_INTERVAL * SAMPLE_SIZE * 2;
 
-    public static final int CLIENT_UDP_RECEIVE_PORT = 38107;
-    public static final int CLIENT_UDP_SEND_PORT = 28107;
-
-    public static final int SERVER_UDP_RECEIVE_PORT = 28107;
-    public static final int SERVER_UDP_SEND_PORT = 18107;
 }

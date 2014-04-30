@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2014.
+ * Travis O'Donnell
+ * Frostburg State University
+ * Computer Science
+ */
+
 package com.teodonnell0.multimedia;
 
 import com.teodonnell0.multimedia.Audio.AudioReceiver;

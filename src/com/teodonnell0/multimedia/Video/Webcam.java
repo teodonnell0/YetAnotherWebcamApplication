@@ -1,19 +1,19 @@
+/*
+ * Copyright (c) 2014.
+ * Travis O'Donnell
+ * Frostburg State University
+ * Computer Science
+ */
+
 package com.teodonnell0.multimedia.Video;
 
 
-import com.googlecode.javacv.FFmpegFrameRecorder;
 import com.googlecode.javacv.FrameGrabber;
 import com.googlecode.javacv.OpenCVFrameGrabber;
 import com.teodonnell0.multimedia.Settings;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import javax.imageio.stream.ImageOutputStream;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
-import java.awt.image.ConvolveOp;
-import java.awt.image.Kernel;
 import java.io.*;
 import java.net.*;
 
@@ -92,22 +92,12 @@ public class Webcam implements Runnable {
         }
     }
 
-    public void stopGrabbing()
-    {
-        run = false;
-        try
-        {
-            openCVFrameGrabber.stop();
-        } catch (FrameGrabber.Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
 
     public void setEffect(int i)
     {
         videoEffect = i;
     }
+
 
     private IplImage covertOriginalToGrayscale(IplImage img)
     {
@@ -115,6 +105,7 @@ public class Webcam implements Runnable {
         cvCvtColor(img, grayImg, CV_BGR2GRAY);
         return grayImg;
     }
+
 
     private IplImage rotate(IplImage img, double angle)
     {
@@ -137,17 +128,15 @@ public class Webcam implements Runnable {
     }
 
 
-
-
-
+    /**
+     *
+     */
     @Override
     public void run()
     {
         run = true;
-
         while(run)
         {
-
             try
             {
                 String request = readRequest();
@@ -173,11 +162,14 @@ public class Webcam implements Runnable {
                 e.printStackTrace();
             }
         }
+    }
 
-
-
-}
-
+    /**
+     * Reads incoming data from InputStream
+     * Data read contain data length of next incoming packet
+     *
+     * @return
+     */
     private String readRequest()
     {
         StringBuilder stringBuilder = new StringBuilder(128);

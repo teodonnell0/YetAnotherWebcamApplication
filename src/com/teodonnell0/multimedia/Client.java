@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2014.
+ * Travis O'Donnell
+ * Frostburg State University
+ * Computer Science
+ */
+
 package com.teodonnell0.multimedia;
 
 import com.teodonnell0.multimedia.Audio.AudioReceiver;
@@ -17,7 +24,6 @@ import java.net.Socket;
  */
 public class Client extends JPanel {
     protected static InetAddress hostIP;
-    protected static boolean isServer;
 
     private static Socket videoSocket1, videoSocket2;
     private static Socket audioSocket;
@@ -108,9 +114,6 @@ public class Client extends JPanel {
         long lastTime = System.nanoTime();
         double nsPerTick = 1000000000D / 60D;
 
-        int ticks = 0;
-        int frames = 0;
-
         long lastTimer = System.currentTimeMillis();
         double delta = 0;
 
@@ -121,7 +124,6 @@ public class Client extends JPanel {
             boolean shouldRender = false;
 
             while (delta >= 1) {
-                ticks++;
                 delta -= 1;
                 shouldRender = true;
             }
@@ -133,14 +135,11 @@ public class Client extends JPanel {
             }
 
             if (shouldRender) {
-                frames++;
                 repaint();
             }
 
             if (System.currentTimeMillis() - lastTimer >= 1000) {
                 lastTimer += 1000;
-                frames = 0;
-                ticks = 0;
             }
 
         }

@@ -1,19 +1,19 @@
+/*
+ * Copyright (c) 2014.
+ * Travis O'Donnell
+ * Frostburg State University
+ * Computer Science
+ */
+
 package com.teodonnell0.multimedia.Video;
 
-import com.googlecode.javacv.cpp.opencv_core;
 import com.teodonnell0.multimedia.Settings;
 
 import javax.imageio.ImageIO;
-import javax.imageio.ImageReadParam;
-import javax.imageio.ImageReader;
-import javax.imageio.stream.ImageInputStream;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.Raster;
 import java.io.*;
 import java.net.*;
-import java.util.Iterator;
 
 /**
  * Created by travis on 3/22/14.
@@ -22,7 +22,6 @@ public class FrameReceiver implements Runnable{
 
     private InputStream inputStream;
     private OutputStream outputStream;
-    private BufferedImage incomingFrame;
     private volatile BufferedImage frame;
 
     private boolean frameAvailable;
@@ -31,8 +30,6 @@ public class FrameReceiver implements Runnable{
     private ByteArrayInputStream byteArrayInputStream;
     public FrameReceiver(Socket socket)
     {
-
-
         try
         {
             inputStream = socket.getInputStream();
@@ -40,6 +37,7 @@ public class FrameReceiver implements Runnable{
         } catch (IOException e)
         {
             e.printStackTrace();
+            System.exit(0);
         }
         frameAvailable = false;
     }
@@ -78,10 +76,12 @@ public class FrameReceiver implements Runnable{
                     Thread.sleep(5);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                    System.exit(0);
                 }
             }catch (IOException e)
             {
                 e.printStackTrace();
+                System.exit(0);
             }
         }
 
@@ -96,15 +96,16 @@ public class FrameReceiver implements Runnable{
         } catch (IOException e)
         {
             e.printStackTrace();
+            System.exit(0);
         }
     }
 
     private String readResponse()
     {
         StringBuilder stringBuilder = new StringBuilder(128);
-        int in = -1;
         try
         {
+            int in = -1;
             while((in = inputStream.read()) != '\n')
             {
                 stringBuilder.append((char)in);
@@ -112,6 +113,7 @@ public class FrameReceiver implements Runnable{
         } catch (IOException e)
         {
             e.printStackTrace();
+            System.exit(0);
         }
         return stringBuilder.toString();
     }
@@ -121,16 +123,11 @@ public class FrameReceiver implements Runnable{
         return frameAvailable;
     }
 
-    public void stop()
-    {
-        run = false;
-    }
 
     public Image getFrame()
     {
         if(frameAvailable)
         {
-           // frameAvailable = false;
             return frame;
         }
         else
